@@ -16,7 +16,8 @@ import java.nio.file.StandardOpenOption;
 /**
  * Controller class for the Deck Management screen.
  * Handles the logic for creating, validating, and persisting flashcard decks to storage.
- * * @author Jailyn
+ * @author Jailyn
+ * @author Thi Phuc Thinh
  * @author Naman Kumar (JavaDoc Documentation)
  * @version 0.2
  */
