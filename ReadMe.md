@@ -4,7 +4,7 @@
 # Version: 0.2
 1. Jailyn Yun: Made the Home page UI and added functionality to Manage Deck button.
 2. Thi Phuc Thinh Huynh: Added Define Deck UI and DeckController implementation.
-3.
+3. Naman Kumar: Implemented JavaDoc documentation for all source files, and edited in ReadMe.md
 
 # Technical-Spec
 1. Jailyn Yun: Designed UML Sequence Diagram Primary Flow and Primary Flow (with optional features)

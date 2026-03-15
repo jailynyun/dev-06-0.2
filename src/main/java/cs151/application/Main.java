@@ -8,8 +8,11 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 /**
- *  This class is the Main page where when launched, the application's Home
- *  page is shown.
+ * Main application class for Version 0.2.
+ * This class handles the initialization and launching of the Flashcards application.
+ * * @author Jailyn
+ * @author Naman Kumar (JavaDoc Documentation)
+ * @version 0.2
  */
 
 public class Main extends Application {
