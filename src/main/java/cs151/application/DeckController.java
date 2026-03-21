@@ -93,4 +93,13 @@ public class DeckController {
         alert.setContentText(message);
         alert.showAndWait();
     }
+
+    @FXML
+    public void onViewDecksClicked(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(Main.class.getResource("deck-table-view.fxml"));
+        Scene scene = new Scene(loader.load(), 800, 500);
+
+        Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+    }
 }

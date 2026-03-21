@@ -34,6 +34,11 @@
             onAction="#onCreateClicked"
             style="-fx-padding: 8 20;"/>
 
+    <!-- NEW: View Decks Button -->
+    <Button text="View All Decks"
+            onAction="#onViewDecksClicked"
+            style="-fx-padding: 8 20;"/>
+
     <!-- Back Button -->
     <Button text="Back to Home"
             onAction="#onBackClicked"
