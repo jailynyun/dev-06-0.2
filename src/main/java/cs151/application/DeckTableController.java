@@ -17,6 +17,15 @@ import java.nio.file.Path;
 import java.util.Comparator;
 import java.util.List;
 
+/**
+ * Controller class for displaying all decks in a table view.
+ * Handles loading, sorting, and presenting deck data from storage.
+ * 
+ * @author Jailyn
+ * @author Thi Phuc Thinh
+ * @author Naman Kumar (JavaDoc Documentation)
+ * @version 0.2
+ */
 public class DeckTableController {
 
     @FXML
@@ -28,6 +37,9 @@ public class DeckTableController {
     @FXML
     private TableColumn<Deck, String> descriptionColumn;
 
+/**
+ * Initializes the table view by setting up columns and loading deck data.
+ */
     @FXML
     public void initialize() {
         nameColumn.setCellValueFactory(cellData ->
@@ -43,6 +55,12 @@ public class DeckTableController {
         deckTable.setItems(decks);
     }
 
+/**
+ * Loads deck data from the decks.txt file.
+ * Parses each line into Deck objects.
+ * 
+ * @return ObservableList of Deck objects.
+ */
     private ObservableList<Deck> loadDecks() {
         ObservableList<Deck> decks = FXCollections.observableArrayList();
         Path path = Path.of("decks.txt");
@@ -73,6 +91,12 @@ public class DeckTableController {
         return decks;
     }
 
+/**
+ * Navigates back to the Define Deck screen.
+ * 
+ * @param event The action event triggered by the user.
+ * @throws IOException If the FXML file cannot be loaded.
+ */
     @FXML
     public void onBackClicked(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(Main.class.getResource("define-deck-view.fxml"));

@@ -11,7 +11,7 @@ import java.io.IOException;
 /**
  * Controller class for the application's Home screen.
  * This class handles navigation logic for studying, managing decks, and quitting.
- * * @author Jailyn
+ * @author Jailyn
  * @author Naman Kumar (JavaDoc Documentation)
  * @version 0.2
  */

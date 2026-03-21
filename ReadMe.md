@@ -1,6 +1,11 @@
 # Name of application: FlashCards System
 
 # who did what:
+# Version: 0.4
+1. Jailyn Yun: 
+2. Thi Phuc Thinh Huynh: 
+3. Naman Kumar: Implemented JavaDoc documentation for all source files and updated ReadMe.md
+
 # Version: 0.2
 1. Jailyn Yun: Made the Home page UI and added functionality to Manage Deck button.
 2. Thi Phuc Thinh Huynh: Added Define Deck UI and DeckController implementation.
