@@ -2,3 +2,5 @@ DS&A|
 164|Human and Computer Interaction
 CS151|This is for Yazi's SP2026 class.
 Spanish|Hola Como estan
+Algorithms|Sorting, searching and graph theory concepts
+art & design|Creative thinking, visual design principles and color theory

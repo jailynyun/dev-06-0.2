@@ -2,8 +2,8 @@
 
 # who did what:
 # Version: 0.4
-1. Jailyn Yun: 
-2. Thi Phuc Thinh Huynh: 
+1. Jailyn Yun:
+2. Thi Phuc Thinh Huynh: Tested Deck listing functionality and verified sorting and persistence
 3. Naman Kumar: Implemented JavaDoc documentation for all source files and updated ReadMe.md
 
 # Version: 0.2
@@ -22,6 +22,3 @@
 3. Naman Kumar: Created Functional Requirements and Mockup 4.2
 
 # Any other instruction that users need to know:
-
-
-
