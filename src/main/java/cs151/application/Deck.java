@@ -7,7 +7,7 @@ package cs151.application;
  * @author Jailyn
  * @author Thi Phuc Thinh
  * @author Naman Kumar (JavaDoc Documentation)
- * @version 0.2
+ * @version 0.4
  */
 public class Deck {
     private final String name;

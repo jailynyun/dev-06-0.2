@@ -24,7 +24,7 @@ import java.util.List;
  * @author Jailyn
  * @author Thi Phuc Thinh
  * @author Naman Kumar (JavaDoc Documentation)
- * @version 0.2
+ * @version 0.4
  */
 public class DeckTableController {
 
