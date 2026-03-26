@@ -1,6 +1,11 @@
 # Name of application: FlashCards System
 
 # who did what:
+# Version: 0.5
+1. Jailyn Yun:
+2. Thi Phuc Thinh Huynh: Create Flashcard Model, Define Flashcard Page, FlashcardController
+3. Naman Kumar:
+
 # Version: 0.4
 1. Jailyn Yun: Added Deck Table page view and View All Decks button.
 2. Thi Phuc Thinh Huynh: Tested Deck listing functionality and verified sorting and persistence
