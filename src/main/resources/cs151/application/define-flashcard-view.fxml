@@ -1,0 +1,7 @@
+<VBox>
+    <ComboBox fx:id="deckComboBox"/>
+    <TextField fx:id="questionField"/>
+    <TextField fx:id="answerField"/>
+    <Button text="Save" onAction="#onSaveClicked"/>
+    <Button text="Back" onAction="#onBackClicked"/>
+</VBox>
