@@ -20,7 +20,7 @@ import java.util.List;
 /**
  * Controller class for displaying all decks in a table view.
  * Handles loading, sorting, and presenting deck data from storage.
- * 
+ *
  * @author Jailyn
  * @author Thi Phuc Thinh
  * @author Naman Kumar (JavaDoc Documentation)
@@ -37,30 +37,38 @@ public class DeckTableController {
     @FXML
     private TableColumn<Deck, String> descriptionColumn;
 
-/**
- * Initializes the table view by setting up columns and loading deck data.
- */
+    /**
+     * Initializes the table view by setting up columns and loading deck data.
+     */
     @FXML
     public void initialize() {
-        nameColumn.setCellValueFactory(cellData ->
-                new ReadOnlyStringWrapper(cellData.getValue().getName()));
+        nameColumn.setCellValueFactory(cellData -> new ReadOnlyStringWrapper(cellData.getValue().getName()));
 
-        descriptionColumn.setCellValueFactory(cellData ->
-                new ReadOnlyStringWrapper(cellData.getValue().getDescription()));
+        descriptionColumn
+                .setCellValueFactory(cellData -> new ReadOnlyStringWrapper(cellData.getValue().getDescription()));
 
         ObservableList<Deck> decks = loadDecks();
+
+        if (decks.isEmpty()) {
+
+            decks.add(new Deck("Math", "Basic mathematics concepts"));
+            decks.add(new Deck("History", "World history overview"));
+            decks.add(new Deck("Science", "General science fundamentals"));
+
+            saveDecks(decks);
+        }
 
         decks.sort(Comparator.comparing(Deck::getName, String.CASE_INSENSITIVE_ORDER));
 
         deckTable.setItems(decks);
     }
 
-/**
- * Loads deck data from the decks.txt file.
- * Parses each line into Deck objects.
- * 
- * @return ObservableList of Deck objects.
- */
+    /**
+     * Loads deck data from the decks.txt file.
+     * Parses each line into Deck objects.
+     *
+     * @return ObservableList of Deck objects.
+     */
     private ObservableList<Deck> loadDecks() {
         ObservableList<Deck> decks = FXCollections.observableArrayList();
         Path path = Path.of("decks.txt");
@@ -91,12 +99,12 @@ public class DeckTableController {
         return decks;
     }
 
-/**
- * Navigates back to the Define Deck screen.
- * 
- * @param event The action event triggered by the user.
- * @throws IOException If the FXML file cannot be loaded.
- */
+    /**
+     * Navigates back to the Define Deck screen.
+     *
+     * @param event The action event triggered by the user.
+     * @throws IOException If the FXML file cannot be loaded.
+     */
     @FXML
     public void onBackClicked(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(Main.class.getResource("define-deck-view.fxml"));
@@ -104,5 +112,26 @@ public class DeckTableController {
 
         Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
+    }
+
+    private void saveDecks(ObservableList<Deck> decks) {
+
+        Path path = Path.of("decks.txt");
+
+        try {
+            StringBuilder builder = new StringBuilder();
+
+            for (Deck deck : decks) {
+                builder.append(deck.getName())
+                        .append("|")
+                        .append(deck.getDescription())
+                        .append("\n");
+            }
+
+            Files.writeString(path, builder.toString());
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
