@@ -27,6 +27,9 @@
         </columns>
     </TableView>
 
+    <Button text="Add Flashcard"
+        onAction="#onAddFlashcardClicked"/>
+
     <Button text="Back"
             onAction="#onBackClicked" />
 </VBox>
