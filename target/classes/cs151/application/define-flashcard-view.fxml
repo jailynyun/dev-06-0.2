@@ -1,7 +1,26 @@
-<VBox>
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="cs151.application.FlashcardController"
+      spacing="15"
+      alignment="CENTER">
+
     <ComboBox fx:id="deckComboBox"/>
-    <TextField fx:id="questionField"/>
-    <TextField fx:id="answerField"/>
-    <Button text="Save" onAction="#onSaveClicked"/>
-    <Button text="Back" onAction="#onBackClicked"/>
+
+    <TextField fx:id="questionField"
+               promptText="Enter Question"/>
+
+    <TextField fx:id="answerField"
+               promptText="Enter Answer"/>
+
+    <Button text="Save"
+            onAction="#onSaveClicked"/>
+
+    <Button text="Back"
+            onAction="#onBackClicked"/>
+
 </VBox>

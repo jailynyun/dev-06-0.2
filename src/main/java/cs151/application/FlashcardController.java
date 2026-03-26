@@ -1,13 +1,16 @@
 package cs151.application;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.List;
 
 public class FlashcardController {
 
@@ -20,59 +23,86 @@ public class FlashcardController {
     @FXML
     private TextField answerField;
 
+    private Deck deck;
+
     private static final String FILE_PATH = "flashcards.txt";
 
     /**
-     * Populates the ComboBox with available deck names.
-     * This method is called from DeckTableController via FXMLLoader.
+     * Called automatically when FXML loads.
      */
-    public void setDecks(List<Deck> decks) {
+    @FXML
+    public void initialize() {
         deckComboBox.getItems().clear();
-        for (Deck deck : decks) {
-            deckComboBox.getItems().add(deck.getName());
-        }
     }
 
     /**
-     * Optionally preselects a deck when navigating from the deck table.
+     * Receives selected deck from DeckTableController.
      */
-    public void setSelectedDeck(Deck deck) {
+    public void setDeck(Deck deck) {
+        this.deck = deck;
+
         if (deck != null) {
+            deckComboBox.getItems().clear();
+            deckComboBox.getItems().add(deck.getName());
             deckComboBox.setValue(deck.getName());
         }
     }
 
     /**
-     * Saves a flashcard to flashcards.txt.
+     * Saves flashcard to file.
      */
     @FXML
     private void onSaveClicked() {
 
-        String deck = deckComboBox.getValue();
         String question = questionField.getText();
         String answer = answerField.getText();
 
-        if (deck == null || question.isBlank() || answer.isBlank()) {
+        if (deck == null) {
+            System.out.println("No deck selected.");
+            return;
+        }
+
+        if (question == null || question.isBlank()
+                || answer == null || answer.isBlank()) {
             System.out.println("Please fill in all fields.");
             return;
         }
 
-        Flashcard card = new Flashcard(question, answer, deck);
+        try (BufferedWriter writer =
+                     new BufferedWriter(new FileWriter(FILE_PATH, true))) {
 
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_PATH, true))) {
             writer.write(
-                    deck + "|" +
-                            question + "|" +
-                            answer + "|" +
-                            card.getCreatedAt().toString());
+                    deck.getName() + "|" +
+                    question + "|" +
+                    answer
+            );
             writer.newLine();
+
             System.out.println("Flashcard saved successfully.");
+
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        // Clear input fields after saving
+        // Clear fields after saving
         questionField.clear();
         answerField.clear();
+    }
+
+    /**
+     * Navigates back to Deck Table page.
+     */
+    @FXML
+    private void onBackClicked(ActionEvent event) throws IOException {
+
+        FXMLLoader loader = new FXMLLoader(
+                Main.class.getResource("deck-table-view.fxml"));
+
+        Scene scene = new Scene(loader.load(), 800, 500);
+
+        Stage stage = (Stage) ((javafx.scene.Node)
+                event.getSource()).getScene().getWindow();
+
+        stage.setScene(scene);
     }
 }
