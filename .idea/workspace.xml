@@ -5,17 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ea55f231-2dd2-4600-86ff-60215bf9799d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/cs151/application/FlashcardTableController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/cs151/application/flashcard-table-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/decks.txt" beforeDir="false" afterPath="$PROJECT_DIR$/decks.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/flashcards.txt" beforeDir="false" afterPath="$PROJECT_DIR$/flashcards.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cs151/application/DeckController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cs151/application/DeckController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cs151/application/DeckTableController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cs151/application/DeckTableController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cs151/application/Flashcard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cs151/application/Flashcard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cs151/application/FlashcardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cs151/application/FlashcardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/cs151/application/deck-table-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/cs151/application/deck-table-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cs151/application/DeckTableController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cs151/application/DeckTableController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cs151/application/FlashcardController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cs151/application/FlashcardController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

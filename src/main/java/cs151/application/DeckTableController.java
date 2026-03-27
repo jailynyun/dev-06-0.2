@@ -85,7 +85,7 @@ public class DeckTableController {
                         String description = "";
 
                         if (parts.length > 1) {
-                            description = parts[1].trim();
+                            description = parts[1].replace("\\n","\n").trim();
                         }
 
                         decks.add(new Deck(name, description));

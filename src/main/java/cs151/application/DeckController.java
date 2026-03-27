@@ -58,7 +58,7 @@ public class DeckController {
             }
 
             // Persist to file
-            String data = deckName + "|" + description + "\n";
+            String data = deckName + "|" + description.replace("\n","\\n") + "\n";
             Files.write(path, data.getBytes(),
                     StandardOpenOption.CREATE,
                     StandardOpenOption.APPEND);
