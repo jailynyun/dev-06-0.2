@@ -30,6 +30,9 @@
     <Button text="Add Flashcard"
         onAction="#onAddFlashcardClicked"/>
 
+    <Button text="View Flashcards"
+            onAction="#onViewFlashcardsClicked"/>
+
     <Button text="Back"
             onAction="#onBackClicked" />
 </VBox>

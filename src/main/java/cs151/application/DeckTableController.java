@@ -157,4 +157,22 @@ public class DeckTableController {
 
         stage.setScene(scene);
     }
+
+    @FXML
+    public void onViewFlashcardsClicked(ActionEvent event) throws IOException {
+        Deck selectedDeck = deckTable.getSelectionModel().getSelectedItem();
+
+        if (selectedDeck == null) {
+            return;
+        }
+
+        FXMLLoader loader = new FXMLLoader(Main.class.getResource("flashcard-table-view.fxml"));
+        Scene scene = new Scene(loader.load(), 900, 500);
+
+        FlashcardTableController controller = loader.getController();
+        controller.setSelectedDeck(selectedDeck);
+
+        Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+    }
 }

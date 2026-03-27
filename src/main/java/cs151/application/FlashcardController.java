@@ -73,8 +73,9 @@ public class FlashcardController {
 
             writer.write(
                     deck.getName() + "|" +
-                    question + "|" +
-                    answer
+                            question + "|" +
+                            answer + "|" +
+                            java.time.LocalDateTime.now()
             );
             writer.newLine();
 

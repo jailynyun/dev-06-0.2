@@ -15,6 +15,12 @@ public class Flashcard {
         this.deckTitle = deckTitle;
         this.createdAt = LocalDateTime.now();
     }
+    public Flashcard(String question, String answer, String deckTitle, LocalDateTime createdAt) {
+        this.question = question;
+        this.answer = answer;
+        this.deckTitle = deckTitle;
+        this.createdAt = createdAt;
+    }
 
     public String getQuestion() { return question; }
     public String getAnswer() { return answer; }

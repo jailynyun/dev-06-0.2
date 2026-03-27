@@ -9,30 +9,26 @@
 
 <VBox xmlns="http://javafx.com/javafx/21"
       xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="cs151.application.DeckTableController"
-      spacing="15"
-      alignment="CENTER">
+      fx:controller="cs151.application.FlashcardTableController"
+      alignment="CENTER"
+      spacing="15">
 
     <padding>
         <Insets top="25" right="25" bottom="25" left="25"/>
     </padding>
 
-    <Label text="All Stored Decks"
+    <Label text="All Stored Flashcards"
            style="-fx-font-size: 24px; -fx-font-weight: bold;" />
 
-    <TableView fx:id="deckTable" prefWidth="700" prefHeight="350">
+    <TableView fx:id="flashcardTable" prefWidth="900" prefHeight="400">
         <columns>
-            <TableColumn fx:id="nameColumn" text="Deck Name" prefWidth="200" />
-            <TableColumn fx:id="descriptionColumn" text="Description" prefWidth="480" />
+            <TableColumn fx:id="deckColumn" text="Deck" prefWidth="150"/>
+            <TableColumn fx:id="questionColumn" text="Question" prefWidth="250"/>
+            <TableColumn fx:id="answerColumn" text="Answer" prefWidth="250"/>
+            <TableColumn fx:id="createdAtColumn" text="Created At" prefWidth="230"/>
         </columns>
     </TableView>
 
-    <Button text="Add Flashcard"
-        onAction="#onAddFlashcardClicked"/>
-
-    <Button text="View Flashcards"
-            onAction="#onViewFlashcardsClicked"/>
-
     <Button text="Back"
-            onAction="#onBackClicked" />
+            onAction="#onBackClicked"/>
 </VBox>
