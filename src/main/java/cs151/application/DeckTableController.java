@@ -24,7 +24,7 @@ import java.util.List;
  * @author Jailyn
  * @author Thi Phuc Thinh
  * @author Naman Kumar (JavaDoc Documentation)
- * @version 0.4
+ * @version 0.5
  */
 public class DeckTableController {
 
@@ -114,6 +114,12 @@ public class DeckTableController {
         stage.setScene(scene);
     }
 
+/**
+ * Saves the list of decks to a text file (decks.txt).
+ * Each deck is written in the format: name|description.
+ *
+ * @param decks The list of Deck objects to be saved.
+ */
     private void saveDecks(ObservableList<Deck> decks) {
 
         Path path = Path.of("decks.txt");
@@ -135,6 +141,13 @@ public class DeckTableController {
         }
     }
 
+/**
+ * Handles the action of adding a flashcard to the selected deck.
+ * Navigates to the flashcard creation screen and passes the selected deck.
+ *
+ * @param event The action event triggered by the user.
+ * @throws IOException If the FXML file cannot be loaded.
+ */
     @FXML
     public void onAddFlashcardClicked(ActionEvent event) throws IOException {
 
@@ -158,6 +171,13 @@ public class DeckTableController {
         stage.setScene(scene);
     }
 
+/**
+ * Handles the action of viewing flashcards in the selected deck.
+ * Navigates to the flashcard table view and passes the selected deck.
+ *
+ * @param event The action event triggered by the user.
+ * @throws IOException If the FXML file cannot be loaded.
+ */
     @FXML
     public void onViewFlashcardsClicked(ActionEvent event) throws IOException {
         Deck selectedDeck = deckTable.getSelectionModel().getSelectedItem();

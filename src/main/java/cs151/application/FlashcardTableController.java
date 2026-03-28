@@ -18,6 +18,16 @@ import java.time.LocalDateTime;
 import java.util.Comparator;
 import java.util.List;
 
+/**
+ * Controller for displaying flashcards in a table view.
+ * Loads flashcards from storage, filters them by selected deck,
+ * and displays them in a sorted table.
+ *
+ * @author Jailyn
+ * @author Thi Phuc Thinh
+ * @author Naman Kumar (JavaDoc Documentation)
+ * @version 0.5
+ */
 public class FlashcardTableController {
 
     @FXML
@@ -37,6 +47,10 @@ public class FlashcardTableController {
 
     private Deck selectedDeck;
 
+/**
+ * Initializes the Flashcard table view by binding table columns
+ * to Flashcard properties.
+ */
     @FXML
     public void initialize() {
         deckColumn.setCellValueFactory(cellData ->
@@ -52,11 +66,21 @@ public class FlashcardTableController {
                 new ReadOnlyStringWrapper(cellData.getValue().getCreatedAt().toString()));
     }
 
+/**
+ * Sets the selected deck and loads its flashcards into the table view.
+ *
+ * @param selectedDeck The deck selected from the previous screen.
+ */
     public void setSelectedDeck(Deck selectedDeck) {
         this.selectedDeck = selectedDeck;
         loadFlashcardsForSelectedDeck();
     }
 
+/**
+ * Loads flashcards from flashcards.txt and filters them based on
+ * the currently selected deck.
+ * Flashcards are sorted by creation time in descending order.
+ */
     private void loadFlashcardsForSelectedDeck() {
         ObservableList<Flashcard> flashcards = FXCollections.observableArrayList();
         Path path = Path.of("flashcards.txt");
@@ -90,6 +114,12 @@ public class FlashcardTableController {
         flashcardTable.setItems(flashcards);
     }
 
+/**
+ * Navigates back to the Deck Table view screen.
+ *
+ * @param event The action event triggered by the back button.
+ * @throws IOException If the FXML file cannot be loaded.
+ */
     @FXML
     public void onBackClicked(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(Main.class.getResource("deck-table-view.fxml"));

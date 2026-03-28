@@ -12,6 +12,16 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 
+/**
+ * Controller for creating and saving flashcards.
+ * Handles user input, validation, file storage, and navigation
+ * between flashcard creation and deck selection screens.
+ *
+ * @author Jailyn
+ * @author Thi Phuc Thinh
+ * @author Naman Kumar (JavaDoc Documentation)
+ * @version 0.5
+ */
 public class FlashcardController {
 
     @FXML
@@ -27,17 +37,21 @@ public class FlashcardController {
 
     private static final String FILE_PATH = "flashcards.txt";
 
-    /**
-     * Called automatically when FXML loads.
-     */
+/**
+ * Initializes the Flashcard view when the FXML is loaded.
+ * Clears and prepares the deck selection ComboBox.
+ */
     @FXML
     public void initialize() {
         deckComboBox.getItems().clear();
     }
 
-    /**
-     * Receives selected deck from DeckTableController.
-     */
+/**
+ * Sets the currently selected deck and updates the ComboBox
+ * to reflect the chosen deck.
+ *
+ * @param deck The deck selected from the previous screen.
+ */
     public void setDeck(Deck deck) {
         this.deck = deck;
 
@@ -48,9 +62,11 @@ public class FlashcardController {
         }
     }
 
-    /**
-     * Saves flashcard to file.
-     */
+/**
+ * Saves a new flashcard to the flashcards.txt file.
+ * Validates that a deck is selected and that question/answer fields are not empty.
+ * Stores data in the format: deckName|question|answer|timestamp.
+ */
     @FXML
     private void onSaveClicked() {
 
@@ -90,9 +106,12 @@ public class FlashcardController {
         answerField.clear();
     }
 
-    /**
-     * Navigates back to Deck Table page.
-     */
+/**
+ * Navigates back to the Deck Table view screen.
+ *
+ * @param event The action event triggered by the back button click.
+ * @throws IOException If the FXML file cannot be loaded.
+ */
     @FXML
     private void onBackClicked(ActionEvent event) throws IOException {
 

@@ -94,6 +94,12 @@ public class DeckController {
         alert.showAndWait();
     }
 
+/**
+ * Navigates the user to the Deck Table view screen.
+ *
+ * @param event The action event triggered by the user.
+ * @throws IOException If the FXML file cannot be loaded.
+ */
     @FXML
     public void onViewDecksClicked(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(Main.class.getResource("deck-table-view.fxml"));
