@@ -2,7 +2,7 @@
 
 # who did what:
 # Version: 0.5
-1. Jailyn Yun:
+1. Jailyn Yun: Created FlashcardTableControl and Flashcard Table view
 2. Thi Phuc Thinh Huynh: Create Flashcard Model, Define Flashcard Page, FlashcardController
 3. Naman Kumar: Implemented JavaDoc documentation 
 
