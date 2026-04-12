@@ -5,7 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextField;
+import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 
 import java.io.BufferedWriter;
@@ -28,30 +28,30 @@ public class FlashcardController {
     private ComboBox<String> deckComboBox;
 
     @FXML
-    private TextField questionField;
+    private TextArea questionArea;
 
     @FXML
-    private TextField answerField;
+    private TextArea answerArea;
 
     private Deck deck;
 
     private static final String FILE_PATH = "flashcards.txt";
 
-/**
- * Initializes the Flashcard view when the FXML is loaded.
- * Clears and prepares the deck selection ComboBox.
- */
+    /**
+     * Initializes the Flashcard view when the FXML is loaded.
+     * Clears and prepares the deck selection ComboBox.
+     */
     @FXML
     public void initialize() {
         deckComboBox.getItems().clear();
     }
 
-/**
- * Sets the currently selected deck and updates the ComboBox
- * to reflect the chosen deck.
- *
- * @param deck The deck selected from the previous screen.
- */
+    /**
+     * Sets the currently selected deck and updates the ComboBox
+     * to reflect the chosen deck.
+     *
+     * @param deck The deck selected from the previous screen.
+     */
     public void setDeck(Deck deck) {
         this.deck = deck;
 
@@ -62,16 +62,16 @@ public class FlashcardController {
         }
     }
 
-/**
- * Saves a new flashcard to the flashcards.txt file.
- * Validates that a deck is selected and that question/answer fields are not empty.
- * Stores data in the format: deckName|question|answer|timestamp.
- */
+    /**
+     * Saves a new flashcard to the flashcards.txt file.
+     * Validates that a deck is selected and that question/answer fields are not
+     * empty.
+     * Stores data in the format: deckName|question|answer|timestamp.
+     */
     @FXML
     private void onSaveClicked() {
-
-        String question = questionField.getText();
-        String answer = answerField.getText();
+        String question = questionArea.getText();
+        String answer = answerArea.getText();
 
         if (deck == null) {
             System.out.println("No deck selected.");
@@ -84,15 +84,13 @@ public class FlashcardController {
             return;
         }
 
-        try (BufferedWriter writer =
-                     new BufferedWriter(new FileWriter(FILE_PATH, true))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_PATH, true))) {
 
             writer.write(
                     deck.getName() + "|" +
                             question + "|" +
                             answer + "|" +
-                            java.time.LocalDateTime.now()
-            );
+                            java.time.LocalDateTime.now());
             writer.newLine();
 
             System.out.println("Flashcard saved successfully.");
@@ -102,16 +100,16 @@ public class FlashcardController {
         }
 
         // Clear fields after saving
-        questionField.clear();
-        answerField.clear();
+        questionArea.clear();
+        answerArea.clear();
     }
 
-/**
- * Navigates back to the Deck Table view screen.
- *
- * @param event The action event triggered by the back button click.
- * @throws IOException If the FXML file cannot be loaded.
- */
+    /**
+     * Navigates back to the Deck Table view screen.
+     *
+     * @param event The action event triggered by the back button click.
+     * @throws IOException If the FXML file cannot be loaded.
+     */
     @FXML
     private void onBackClicked(ActionEvent event) throws IOException {
 
@@ -120,8 +118,7 @@ public class FlashcardController {
 
         Scene scene = new Scene(loader.load(), 800, 500);
 
-        Stage stage = (Stage) ((javafx.scene.Node)
-                event.getSource()).getScene().getWindow();
+        Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
 
         stage.setScene(scene);
     }
