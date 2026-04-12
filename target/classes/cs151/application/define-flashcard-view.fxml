@@ -11,11 +11,15 @@
 
     <ComboBox fx:id="deckComboBox"/>
 
-    <TextField fx:id="questionField"
-               promptText="Enter Question"/>
+<TextArea fx:id="questionArea"
+          promptText="Enter Question"
+          wrapText="true"
+          prefRowCount="3"/>
 
-    <TextField fx:id="answerField"
-               promptText="Enter Answer"/>
+<TextArea fx:id="answerArea"
+          promptText="Enter Answer"
+          wrapText="true"
+          prefRowCount="3"/>
 
     <Button text="Save"
             onAction="#onSaveClicked"/>
