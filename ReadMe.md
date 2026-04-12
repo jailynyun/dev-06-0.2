@@ -1,6 +1,11 @@
 # Name of application: FlashCards System
 
 # who did what:
+# Version: 0.6
+1. Jailyn Yun:
+2. Thi Phuc Thinh Huynh: Implemented Search Flashcard View, and SearchFlashcardController
+3. Naman Kumar:
+
 # Version: 0.5
 1. Jailyn Yun: Created FlashcardTableControl and Flashcard Table view
 2. Thi Phuc Thinh Huynh: Created Flashcard Model, Define Flashcard Page, FlashcardController
