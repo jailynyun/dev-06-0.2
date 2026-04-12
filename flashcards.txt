@@ -1,2 +1,3 @@
-CS151|entity|something that exists in the universe|New|2026-03-26T18:43:53.960141
-art & design|hailey|says hello|New|2026-03-26T19:00:49.740128
+art & design|primary colors|red, blue, yellow|NEW|2026-04-11T20:09:40.491317
+CS151|entity|something that exists in the universe|NEW|2026-04-11T20:14:02.752939
+CS151|design pattern|a template to solve a class of similar problems|NEW|2026-04-11T20:14:43.581955164

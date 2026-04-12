@@ -20,6 +20,9 @@
     <Label text="All Stored Decks"
            style="-fx-font-size: 24px; -fx-font-weight: bold;" />
 
+    <Label text="Select a deck, then click a button below to add or view its current flashcards."
+           style=" -fx-font-size: 14px;"/>
+
     <TableView fx:id="deckTable" prefWidth="700" prefHeight="350">
         <columns>
             <TableColumn fx:id="nameColumn" text="Deck Name" prefWidth="200" />

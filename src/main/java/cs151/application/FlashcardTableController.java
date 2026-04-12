@@ -91,16 +91,19 @@ public class FlashcardTableController {
 
                 for (String line : lines) {
                     if (!line.trim().isEmpty()) {
-                        String[] parts = line.split("\\|", 4);
+                        String[] parts = line.split("\\|", 5);
 
-                        if (parts.length == 4) {
+                        if (parts.length == 5) {
                             String deckTitle = parts[0].trim();
-                            String question = parts[1].trim();
-                            String answer = parts[2].trim();
-                            LocalDateTime createdAt = LocalDateTime.parse(parts[3].trim());
+                            String question = parts[1].replace("\\n","\n");
+                            String answer = parts[2].replace("\\n","\n");
+                            String status = parts[3].trim();
+                            LocalDateTime createdAt = LocalDateTime.parse(parts[4].trim());
 
                             if (deckTitle.equalsIgnoreCase(selectedDeck.getName())) {
-                                flashcards.add(new Flashcard(question, answer, deckTitle, createdAt));
+                                Flashcard flashcard = new Flashcard(question, answer, deckTitle, createdAt);
+                                flashcard.setStatus(status);
+                                flashcards.add(flashcard);
                             }
                         }
                     }

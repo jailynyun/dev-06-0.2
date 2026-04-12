@@ -17,7 +17,7 @@ public class Flashcard {
     private String answer;
     private String deckTitle;
     private LocalDateTime createdAt;
-    private String status = "New";
+    private String status = "NEW";
 
 /**
  * Constructs a Flashcard with the given question, answer, and deck title.
@@ -77,7 +77,7 @@ public class Flashcard {
     // SEARCH feature
     public String getStatus() { return status; }
     public void setStatus(String status) {
-        this.status = (status == null || status.isBlank()) ? "New" : status;
+        this.status = (status == null || status.isBlank()) ? "NEW" : status;
     }
     public String getFrontText() { return question; }
     public String getBackText() { return answer; }

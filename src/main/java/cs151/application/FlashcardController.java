@@ -70,8 +70,8 @@ public class FlashcardController {
      */
     @FXML
     private void onSaveClicked() {
-        String question = questionArea.getText();
-        String answer = answerArea.getText();
+        String question = questionArea.getText().replace("\n","\\n");
+        String answer = answerArea.getText().replace("\n","\\n");
 
         if (deck == null) {
             System.out.println("No deck selected.");
@@ -90,7 +90,7 @@ public class FlashcardController {
                     deck.getName() + "|" +
                             question + "|" +
                             answer + "|" +
-                            "New" + "|" +
+                            "NEW" + "|" +
                             java.time.LocalDateTime.now());
             writer.newLine();
 

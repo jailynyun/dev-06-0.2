@@ -7,6 +7,12 @@
     <list default="true" id="ea55f231-2dd2-4600-86ff-60215bf9799d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ReadMe.md" beforeDir="false" afterPath="$PROJECT_DIR$/ReadMe.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flashcards.txt" beforeDir="false" afterPath="$PROJECT_DIR$/flashcards.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cs151/application/Flashcard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cs151/application/Flashcard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cs151/application/FlashcardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cs151/application/FlashcardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cs151/application/FlashcardFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cs151/application/FlashcardFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cs151/application/FlashcardTableController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cs151/application/FlashcardTableController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/cs151/application/deck-table-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/cs151/application/deck-table-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,6 +65,19 @@
   }
 }</component>
   <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cs151.application.Main" />
+      <module name="HelloWorld" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cs151.application.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <module name="dev-06-0.2" />
       <method v="2">
@@ -70,6 +89,11 @@
       <option name="filePath" />
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -88,5 +112,15 @@
       <updated>1773366407683</updated>
     </task>
     <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.time.format.DateTimeParseException" package="java.time.format" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -25,8 +25,8 @@ public class FlashcardFile {
                 if (parts.length != 5) continue;
 
                 String deck = parts[0].trim();
-                String question = parts[1];
-                String answer = parts[2];
+                String question = parts[1].replace("\\n","\n");
+                String answer = parts[2].replace("\\n","\n");
                 String status = parts[3].trim();
                 LocalDateTime createdAt = LocalDateTime.parse(parts[4].trim());
 
