@@ -5,7 +5,7 @@
 1. Jailyn Yun: Fixed bugs such as indexing error in View Decks after deleting a flashcard, 
 fixed "new line" bugs when saving multiple line flashcards, and added 3 meaningful flashcards. 
 2. Thi Phuc Thinh Huynh: Implemented Search Flashcard View, and SearchFlashcardController
-3. Naman Kumar:
+3. Naman Kumar: Naman Kumar: Implemented JavaDoc documentation
 
 # Version: 0.5
 1. Jailyn Yun: Created FlashcardTableControl and Flashcard Table view
