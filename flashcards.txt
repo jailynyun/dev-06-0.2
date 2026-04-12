@@ -1,2 +1,2 @@
-CS151|entity|something that exists in the universe|2026-03-26T18:43:53.960141
-art & design|hailey|says hello|2026-03-26T19:00:49.740128
+CS151|entity|something that exists in the universe|New|2026-03-26T18:43:53.960141
+art & design|hailey|says hello|New|2026-03-26T19:00:49.740128

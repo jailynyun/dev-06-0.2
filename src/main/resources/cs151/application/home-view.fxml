@@ -32,7 +32,9 @@
                 onAction="#onManageDecksClicked"
                 style="-fx-font-size: 14px; -fx-padding: 10 18;"/>
 
-        <Button text="Search Flashcards" onAction="#onSearchFlashcardsClicked"/>
+        <Button text="Search Flashcards"
+                onAction="#onSearchFlashcardsClicked"
+                style="-fx-font-size: 14px; -fx-padding: 10 18;"/>
 
         <Button text="Quit"
                 onAction="#onQuitClicked"

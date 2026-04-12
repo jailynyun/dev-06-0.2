@@ -90,6 +90,7 @@ public class FlashcardController {
                     deck.getName() + "|" +
                             question + "|" +
                             answer + "|" +
+                            "New" + "|" +
                             java.time.LocalDateTime.now());
             writer.newLine();
 

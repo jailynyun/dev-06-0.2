@@ -1,6 +1,8 @@
 cs151/application/DeckTableController.class
+cs151/application/SearchFlashcardController.class
 cs151/application/Deck.class
 cs151/application/FlashcardController.class
+cs151/application/FlashcardFile.class
 cs151/application/FlashcardTableController.class
 cs151/application/HomeController.class
 module-info.class

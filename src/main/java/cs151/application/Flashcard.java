@@ -17,6 +17,7 @@ public class Flashcard {
     private String answer;
     private String deckTitle;
     private LocalDateTime createdAt;
+    private String status = "New";
 
 /**
  * Constructs a Flashcard with the given question, answer, and deck title.
@@ -48,6 +49,7 @@ public class Flashcard {
         this.createdAt = createdAt;
     }
 
+
 /**
  * Gets the question of the flashcard.
  * @return The question text.
@@ -71,4 +73,13 @@ public class Flashcard {
  * @return The date and time the flashcard was created.
  */
     public LocalDateTime getCreatedAt() { return createdAt; }
+
+    // SEARCH feature
+    public String getStatus() { return status; }
+    public void setStatus(String status) {
+        this.status = (status == null || status.isBlank()) ? "New" : status;
+    }
+    public String getFrontText() { return question; }
+    public String getBackText() { return answer; }
+
 }
