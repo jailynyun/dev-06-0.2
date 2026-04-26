@@ -19,14 +19,21 @@ import java.util.Locale;
 
 public class SearchFlashcardController {
 
-    @FXML private TextField searchField;
+    @FXML
+    private TextField searchField;
 
-    @FXML private TableView<Flashcard> table;
-    @FXML private TableColumn<Flashcard, String> deckCol;
-    @FXML private TableColumn<Flashcard, String> frontCol;
-    @FXML private TableColumn<Flashcard, String> backCol;
-    @FXML private TableColumn<Flashcard, String> statusCol;
-    @FXML private TableColumn<Flashcard, String> createdCol;
+    @FXML
+    private TableView<Flashcard> table;
+    @FXML
+    private TableColumn<Flashcard, String> deckCol;
+    @FXML
+    private TableColumn<Flashcard, String> frontCol;
+    @FXML
+    private TableColumn<Flashcard, String> backCol;
+    @FXML
+    private TableColumn<Flashcard, String> statusCol;
+    @FXML
+    private TableColumn<Flashcard, String> createdCol;
 
     private final ObservableList<Flashcard> master = FXCollections.observableArrayList();
     private final ObservableList<Flashcard> filtered = FXCollections.observableArrayList();
@@ -49,6 +56,18 @@ public class SearchFlashcardController {
         filtered.setAll(master);
         table.setItems(filtered);
 
+        // Double-click a row to edit flashcard
+        table.setRowFactory(tv -> {
+            javafx.scene.control.TableRow<Flashcard> row = new javafx.scene.control.TableRow<>();
+            row.setOnMouseClicked(event -> {
+                if (event.getClickCount() == 2 && (!row.isEmpty())) {
+                    Flashcard selected = row.getItem();
+                    openEditFlashcard(selected);
+                }
+            });
+            return row;
+        });
+
         // optional live-search as you type
         searchField.textProperty().addListener((obs, oldV, newV) -> applyFilter(newV));
     }
@@ -66,21 +85,21 @@ public class SearchFlashcardController {
             return;
         }
 
-        filtered.setAll(master.filtered(fc ->
-                containsIgnoreCase(fc.getDeckTitle(), query)
-                        || containsIgnoreCase(fc.getFrontText(), query)
-                        || containsIgnoreCase(fc.getBackText(), query)
-                        || containsIgnoreCase(fc.getStatus(), query)
-        ));
+        filtered.setAll(master.filtered(fc -> containsIgnoreCase(fc.getDeckTitle(), query)
+                || containsIgnoreCase(fc.getFrontText(), query)
+                || containsIgnoreCase(fc.getBackText(), query)
+                || containsIgnoreCase(fc.getStatus(), query)));
     }
 
     private boolean containsIgnoreCase(String text, String queryLower) {
-        if (text == null) return false;
+        if (text == null)
+            return false;
         return text.toLowerCase(Locale.ROOT).contains(queryLower);
     }
 
     private String firstLine(String s) {
-        if (s == null) return "";
+        if (s == null)
+            return "";
         String normalized = s.replace("\r\n", "\n");
         int idx = normalized.indexOf('\n');
         return (idx >= 0) ? normalized.substring(0, idx) : normalized;
@@ -89,7 +108,8 @@ public class SearchFlashcardController {
     @FXML
     private void onDeleteClicked() {
         Flashcard selected = table.getSelectionModel().getSelectedItem();
-        if (selected == null) return;
+        if (selected == null)
+            return;
 
         // Remove permanently from file (requirement)
         FlashcardFile.deleteOne(selected);
@@ -105,5 +125,21 @@ public class SearchFlashcardController {
         Scene scene = new Scene(loader.load(), 800, 500);
         Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
+    }
+
+    private void openEditFlashcard(Flashcard selected) {
+        try {
+            FXMLLoader loader = new FXMLLoader(Main.class.getResource("edit-flashcard-view.fxml"));
+            Scene scene = new Scene(loader.load(), 800, 500);
+
+            EditFlashcardController controller = loader.getController();
+            controller.setFlashcard(selected);
+
+            Stage stage = (Stage) table.getScene().getWindow();
+            stage.setScene(scene);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
