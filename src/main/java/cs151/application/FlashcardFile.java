@@ -9,7 +9,8 @@ import java.util.List;
 
 /**
  * Utility class for handling flashcard file operations.
- * Responsible for loading, parsing, and deleting flashcards from persistent storage.
+ * Responsible for loading, parsing, and deleting flashcards from persistent
+ * storage.
  *
  * Flashcards are stored in a flat file using the format:
  * deckTitle|question|answer|status|createdAt
@@ -37,18 +38,21 @@ public class FlashcardFile {
      */
     public static List<Flashcard> loadAll() {
         List<Flashcard> list = new ArrayList<>();
-        if (!Files.exists(FILE)) return list;
+        if (!Files.exists(FILE))
+            return list;
 
         try {
             for (String line : Files.readAllLines(FILE)) {
-                if (line == null || line.isBlank()) continue;
+                if (line == null || line.isBlank())
+                    continue;
 
                 String[] parts = line.split("\\|", 5);
-                if (parts.length != 5) continue;
+                if (parts.length != 5)
+                    continue;
 
                 String deck = parts[0].trim();
-                String question = parts[1].replace("\\n","\n");
-                String answer = parts[2].replace("\\n","\n");
+                String question = parts[1].replace("\\n", "\n");
+                String answer = parts[2].replace("\\n", "\n");
                 String status = parts[3].trim();
                 LocalDateTime createdAt = LocalDateTime.parse(parts[4].trim());
 
@@ -76,16 +80,34 @@ public class FlashcardFile {
     public static void deleteOne(Flashcard target) {
         List<Flashcard> all = loadAll();
 
-        all.removeIf(fc ->
-                fc.getDeckTitle().equalsIgnoreCase(target.getDeckTitle())
-                        && fc.getCreatedAt().equals(target.getCreatedAt())
-                        && fc.getQuestion().equals(target.getQuestion())
-                        && fc.getAnswer().equals(target.getAnswer())
-                        && fc.getStatus().equalsIgnoreCase(target.getStatus())
-        );
+        all.removeIf(fc -> fc.getDeckTitle().equalsIgnoreCase(target.getDeckTitle())
+                && fc.getCreatedAt().equals(target.getCreatedAt())
+                && fc.getQuestion().equals(target.getQuestion())
+                && fc.getAnswer().equals(target.getAnswer())
+                && fc.getStatus().equalsIgnoreCase(target.getStatus()));
 
         try (BufferedWriter w = Files.newBufferedWriter(
                 FILE,
+                StandardOpenOption.CREATE,
+                StandardOpenOption.TRUNCATE_EXISTING)) {
+
+            for (Flashcard fc : all) {
+                String line = fc.getDeckTitle() + "|" +
+                        fc.getQuestion() + "|" +
+                        fc.getAnswer() + "|" +
+                        fc.getStatus() + "|" +
+                        fc.getCreatedAt();
+                w.write(line);
+                w.newLine();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void rewriteAll(List<Flashcard> all) {
+        try (java.io.BufferedWriter w = Files.newBufferedWriter(
+                Path.of("flashcards.txt"),
                 StandardOpenOption.CREATE,
                 StandardOpenOption.TRUNCATE_EXISTING)) {
 
