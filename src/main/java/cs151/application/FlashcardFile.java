@@ -113,10 +113,11 @@ public class FlashcardFile {
 
             for (Flashcard fc : all) {
                 String line = fc.getDeckTitle() + "|" +
-                        fc.getQuestion() + "|" +
-                        fc.getAnswer() + "|" +
+                        fc.getQuestion().replace("\n","\\n") + "|" +
+                        fc.getAnswer().replace("\n","\\n") + "|" +
                         fc.getStatus() + "|" +
                         fc.getCreatedAt();
+
                 w.write(line);
                 w.newLine();
             }
