@@ -138,7 +138,7 @@ public class SearchFlashcardController {
             Stage stage = (Stage) table.getScene().getWindow();
             stage.setScene(scene);
 
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
