@@ -5,14 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ea55f231-2dd2-4600-86ff-60215bf9799d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/cs151/application/EditDeckController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/cs151/application/edit-deck-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ReadMe.md" beforeDir="false" afterPath="$PROJECT_DIR$/ReadMe.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/decks.txt" beforeDir="false" afterPath="$PROJECT_DIR$/decks.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/flashcards.txt" beforeDir="false" afterPath="$PROJECT_DIR$/flashcards.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cs151/application/Flashcard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cs151/application/Flashcard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cs151/application/FlashcardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cs151/application/FlashcardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cs151/application/FlashcardFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cs151/application/FlashcardFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cs151/application/FlashcardTableController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cs151/application/FlashcardTableController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cs151/application/DeckTableController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cs151/application/DeckTableController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cs151/application/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cs151/application/HomeController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/cs151/application/deck-table-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/cs151/application/deck-table-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/cs151/application/home-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/cs151/application/home-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cs151/application/DeckFile.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cs151/application/DeckFile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cs151/application/DeckTableController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cs151/application/DeckTableController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cs151/application/EditFlashcardController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cs151/application/EditFlashcardController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cs151/application/FlashcardFile.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cs151/application/FlashcardFile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cs151/application/HomeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cs151/application/HomeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cs151/application/SearchFlashcardController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cs151/application/SearchFlashcardController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cs151/application/deck-table-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cs151/application/deck-table-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cs151/application/home-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cs151/application/home-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,8 +32,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>

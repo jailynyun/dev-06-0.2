@@ -1,3 +1,3 @@
 164|Human and Computer Interaction
-CS151|This is for Yazi's SP2026 class.
-art & design|Creative thinking, visual design principles and color theory
+art & design|Creative thinking, visual design principles \nand color theory
+cs151|yazi\ntest\nhii

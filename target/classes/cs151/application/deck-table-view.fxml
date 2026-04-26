@@ -20,7 +20,7 @@
     <Label text="All Stored Decks"
            style="-fx-font-size: 24px; -fx-font-weight: bold;" />
 
-    <Label text="Select a deck, then click a button below to add or view its current flashcards."
+    <Label text="Select a deck, then click a button below to add, view its current flashcards, or delete it."
            style=" -fx-font-size: 14px;"/>
 
     <TableView fx:id="deckTable" prefWidth="700" prefHeight="350">
@@ -35,6 +35,9 @@
 
     <Button text="View Flashcards"
             onAction="#onViewFlashcardsClicked"/>
+
+    <Button text="Delete Deck"
+            onAction="#onDeleteDeckClicked"/>
 
     <Button text="Back"
             onAction="#onBackClicked" />

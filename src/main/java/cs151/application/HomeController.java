@@ -31,13 +31,20 @@ public class HomeController {
      */
     @FXML
     private void onManageDecksClicked(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(Main.class.getResource("define-deck-view.fxml"));
+        FXMLLoader loader = new FXMLLoader(Main.class.getResource("deck-table-view.fxml"));
         Scene scene = new Scene(loader.load(), 800, 500);
 
         Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
     }
+    @FXML
+    public void onAddDecksClicked(ActionEvent actionEvent) throws IOException{
+        FXMLLoader loader = new FXMLLoader(Main.class.getResource("define-deck-view.fxml"));
+        Scene scene = new Scene(loader.load(), 800, 500);
 
+        Stage stage = (Stage) ((javafx.scene.Node) actionEvent.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+    }
     @FXML
     private void onSearchFlashcardsClicked(ActionEvent event) throws IOException {
     FXMLLoader loader = new FXMLLoader(Main.class.getResource("search-flashcard-view.fxml"));
@@ -54,4 +61,6 @@ public class HomeController {
     private void onQuitClicked(ActionEvent event) {
         Platform.exit();
     }
+
+
 }

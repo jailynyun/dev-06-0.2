@@ -7,15 +7,16 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Controller class for displaying all decks in a table view.
@@ -42,10 +43,10 @@ public class DeckTableController {
      */
     @FXML
     public void initialize() {
-        nameColumn.setCellValueFactory(cellData -> new ReadOnlyStringWrapper(cellData.getValue().getName()));
+        nameColumn.setCellValueFactory(cellData -> new ReadOnlyStringWrapper(getFirstLine(cellData.getValue().getName())));
 
         descriptionColumn
-                .setCellValueFactory(cellData -> new ReadOnlyStringWrapper(cellData.getValue().getDescription()));
+                .setCellValueFactory(cellData -> new ReadOnlyStringWrapper(getFirstLine(cellData.getValue().getDescription())));
 
         ObservableList<Deck> decks = loadDecks();
 
@@ -61,6 +62,37 @@ public class DeckTableController {
         decks.sort(Comparator.comparing(Deck::getName, String.CASE_INSENSITIVE_ORDER));
 
         deckTable.setItems(decks);
+
+        //double click to edit deck features.
+        deckTable.setRowFactory(tv -> {
+            TableRow<Deck> row = new TableRow<>();
+            row.setOnMouseClicked(event -> {
+                if (event.getClickCount() == 2 && !row.isEmpty()) {
+                    Deck selectedDeck = row.getItem();
+
+                    try {
+                        FXMLLoader loader = new FXMLLoader(Main.class.getResource("edit-deck-view.fxml"));
+                        Scene scene = new Scene(loader.load(), 800, 500);
+
+                        EditDeckController controller = loader.getController();
+                        controller.setDeck(selectedDeck);
+
+                        Stage stage = (Stage) deckTable.getScene().getWindow();
+                        stage.setScene(scene);
+
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+            return row;
+        });
+    }
+
+    private String getFirstLine(String text) {
+        if(text == null) return "";
+        int index = text.indexOf("\n");
+        return (index == -1) ? text : text.substring(0,index);
     }
 
     /**
@@ -107,7 +139,7 @@ public class DeckTableController {
      */
     @FXML
     public void onBackClicked(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(Main.class.getResource("define-deck-view.fxml"));
+        FXMLLoader loader = new FXMLLoader(Main.class.getResource("home-view.fxml"));
         Scene scene = new Scene(loader.load(), 800, 500);
 
         Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
@@ -194,5 +226,91 @@ public class DeckTableController {
 
         Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
+    }
+    @FXML
+    public void onDeleteDeckClicked(ActionEvent actionEvent) throws IOException {
+        Deck selectedDeck = deckTable.getSelectionModel().getSelectedItem();
+
+        if (selectedDeck == null) {
+            return;
+        }
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Delete Deck");
+        alert.setHeaderText("Delete selected deck?");
+        alert.setContentText("Warning: This will permanently delete the deck \""
+                + selectedDeck.getName()
+                + "\" and all flashcards linked to it.");
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.isPresent() && result.get() == ButtonType.OK) {
+            deleteDeck(selectedDeck);
+            deleteFlashcardsForDeck(selectedDeck);
+
+            deckTable.getItems().remove(selectedDeck);
+
+            Alert success = new Alert(Alert.AlertType.INFORMATION);
+            success.setTitle("Deleted");
+            success.setHeaderText(null);
+            success.setContentText("Deck and linked flashcards deleted successfully.");
+            success.showAndWait();
+        }
+    }
+
+    private void deleteDeck(Deck targetDeck) {
+        Path path = Path.of("decks.txt");
+
+        try {
+            if (!Files.exists(path)) {
+                return;
+            }
+
+            List<String> lines = Files.readAllLines(path);
+            List<String> updatedLines = new ArrayList<>();
+
+            for (String line : lines) {
+                if (!line.trim().isEmpty()) {
+                    String[] parts = line.split("\\|", 2);
+                    String deckName = parts[0].trim();
+
+                    if (!deckName.equalsIgnoreCase(targetDeck.getName())) {
+                        updatedLines.add(line);
+                    }
+                }
+            }
+
+            Files.write(path, updatedLines);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void deleteFlashcardsForDeck(Deck targetDeck) {
+        Path path = Path.of("flashcards.txt");
+
+        try {
+            if (!Files.exists(path)) {
+                return;
+            }
+
+            List<String> lines = Files.readAllLines(path);
+            List<String> updatedLines = new ArrayList<>();
+
+            for (String line : lines) {
+                if (!line.trim().isEmpty()) {
+                    String[] parts = line.split("\\|", 5);
+                    String deckTitle = parts[0].trim();
+
+                    if (!deckTitle.equalsIgnoreCase(targetDeck.getName())) {
+                        updatedLines.add(line);
+                    }
+                }
+            }
+
+            Files.write(path, updatedLines);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

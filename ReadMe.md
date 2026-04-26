@@ -2,7 +2,7 @@
 
 # who did what:
 # Version 0.7
-1. Jailyn Yun:
+1. Jailyn Yun: Added Editing Decks features and Deleting Deck features (EditDeckController, DeckTableController), tested and fixed bugs.
 2. Thi Phuc Thinh Huynh: Added openEditFlashcard method to SearchFlashcardController, implemented edit-flashcard-view FXML, EditFlashcardController
 3. Naman Kumar:
 
