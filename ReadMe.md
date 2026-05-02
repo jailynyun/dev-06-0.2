@@ -1,6 +1,12 @@
 # Name of application: FlashCards System
 
 # who did what:
+# Version 0.8
+1. Jailyn Yun:
+2. Thi Phuc Thinh Huynh: Added Review button to Home page. Implemented Review page/ review-view FXML, ReviewController.
+Implemented Deck Review page/ deck-review-view FXML, DeckReviewController
+3. Naman Kumar:
+
 # Version 0.7
 1. Jailyn Yun: Added Editing Decks features and Deleting Deck features (EditDeckController, DeckTableController), tested and fixed bugs.
 2. Thi Phuc Thinh Huynh: Added openEditFlashcard method to SearchFlashcardController, implemented edit-flashcard-view FXML, EditFlashcardController
