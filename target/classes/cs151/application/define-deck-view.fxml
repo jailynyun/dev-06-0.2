@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="cs151.application.DeckController"
+      alignment="CENTER"
+      spacing="15"
+      style="-fx-background-color: #111827;">
+
+    <padding>
+        <Insets top="40" right="40" bottom="40" left="40"/>
+    </padding>
+
+    <Label text="Define Deck"
+           style="-fx-font-size: 30px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+
+    <!-- Deck Name -->
+    <TextField fx:id="deckNameField"
+               promptText="Enter Deck Name"
+               maxWidth="300"/>
+
+    <!-- Description -->
+    <TextArea fx:id="descriptionField"
+              promptText="Enter Description (optional)"
+              prefRowCount="3"
+              maxWidth="300"/>
+
+    <!-- Create Button -->
+    <Button text="Create Deck"
+            onAction="#onCreateClicked"
+            style="-fx-padding: 8 20;"/>
+
+    <!-- NEW: View Decks Button -->
+    <Button text="View All Decks"
+            onAction="#onViewDecksClicked"
+            style="-fx-padding: 8 20;"/>
+
+    <!-- Back Button -->
+    <Button text="Back to Home"
+            onAction="#onBackClicked"
+            style="-fx-padding: 8 20;"/>
+
+</VBox>

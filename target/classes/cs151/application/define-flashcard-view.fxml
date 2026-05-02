@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="cs151.application.FlashcardController"
+      spacing="15"
+      alignment="CENTER">
+
+    <ComboBox fx:id="deckComboBox"/>
+
+<TextArea fx:id="questionArea"
+          promptText="Enter Question"
+          wrapText="true"
+          prefRowCount="3"/>
+
+<TextArea fx:id="answerArea"
+          promptText="Enter Answer"
+          wrapText="true"
+          prefRowCount="3"/>
+
+    <Button text="Save"
+            onAction="#onSaveClicked"/>
+
+    <Button text="Back"
+            onAction="#onBackClicked"/>
+
+</VBox>
