@@ -20,10 +20,17 @@ public class HomeController {
      * Handles the event when the Study button is clicked.
      * @param event The action event triggered by the user.
      */
+
     @FXML
-    private void onStudyClicked(ActionEvent event) {
-        System.out.println("Study clicked (TODO: navigate to study screen)");
+    private void onStudyClicked(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(Main.class.getResource("review-view.fxml"));
+        Scene scene = new Scene(loader.load(), 800, 500);
+
+        Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
     }
+
+
     /**
      * Navigates the user to the Deck Management (Define Deck) view.
      * @param event The action event triggered by the user.
