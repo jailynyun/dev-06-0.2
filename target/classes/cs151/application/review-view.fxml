@@ -28,7 +28,7 @@
     </TableView>
 
     <HBox spacing="10" alignment="CENTER">
-        <Button text="Open Selected Deck" onAction="#onOpenClicked"/>
+<!--        <Button text="Open Selected Deck" onAction="#onOpenClicked"/>-->
         <Button text="Back" onAction="#onBackClicked"/>
     </HBox>
 

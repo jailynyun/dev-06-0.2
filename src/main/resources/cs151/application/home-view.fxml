@@ -24,9 +24,6 @@
            style="-fx-font-size: 16px; -fx-text-fill: #cbd5e1;"/>
 
     <HBox spacing="12" alignment="CENTER">
-        <Button text="Study"
-                onAction="#onStudyClicked"
-                style="-fx-font-size: 14px; -fx-padding: 10 18;"/>
 
         <Button text="Manage Decks"
                 onAction="#onManageDecksClicked"

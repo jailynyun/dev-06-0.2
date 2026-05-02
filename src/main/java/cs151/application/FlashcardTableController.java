@@ -91,12 +91,12 @@ public class FlashcardTableController {
 
                 for (String line : lines) {
                     if (!line.trim().isEmpty()) {
-                        String[] parts = line.split("\\|", 5);
+                        String[] parts = line.split("\\|", 6);
 
-                        if (parts.length == 5) {
+                        if (parts.length >= 5) {
                             String deckTitle = parts[0].trim();
-                            String question = parts[1].replace("\\n","\n");
-                            String answer = parts[2].replace("\\n","\n");
+                            String question = parts[1].replace("\\n", "\n");
+                            String answer = parts[2].replace("\\n", "\n");
                             String status = parts[3].trim();
                             LocalDateTime createdAt = LocalDateTime.parse(parts[4].trim());
 

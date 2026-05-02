@@ -88,7 +88,7 @@ public class DeckReviewController {
         if (filtered.isEmpty()) {
             frontArea.setText("");
             backArea.setText("");
-            statusCombo.setValue("NEW");
+            statusCombo.setValue("-");
             createdAtLabel.setText("-");
             lastReviewedLabel.setText("-");
             prevBtn.setDisable(true);

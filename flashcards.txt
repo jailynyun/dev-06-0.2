@@ -1,5 +1,6 @@
-Data Structures|What is a stack?|LIFO structure|NEW|2026-04-25T23:10:48.465750300
-Java Basics|What is JVM?|Java Virtual Machine|NEW|2026-04-25T23:11:17.576654400
-Java Basics|What is JDK?|Java Development Kit|NEW|2026-04-25T23:11:33.483930600
-OOP Concepts|What is encapsulation?|Wrapping data and methods togethe|NEW|2026-04-25T23:11:59.728628200
-OOP Concepts|What is inheritance?|Child class reuses parent class|NEW|2026-04-25T23:12:20.297041500
+Data Structures|What is a stack?|LIFO structure\ntest\naaaa|Learning|2026-04-25T23:10:48.465750300|2026-05-02T16:16:25.096167
+Java Basics|What is JVM?|Java Virtual Machine|Learning|2026-04-25T23:11:17.576654400|2026-05-02T16:30:19.467314
+Java Basics|What is JDK?|Java Development Kit|Learning|2026-04-25T23:11:33.483930600|2026-05-02T16:07:18.548373
+OOP Concepts|What is encapsulation?|Wrapping data and methods together|Learning|2026-04-25T23:11:59.728628200|2026-05-02T16:14:49.563256
+OOP Concepts|What is inheritance?|Child class reuses parent class\na\na\n|Mastered|2026-04-25T23:12:20.297041500|2026-04-25T23:12:20.297041500
+hia|a\na|b\nb|NEW|2026-05-02T16:31:10.581520|2026-05-02T16:38:39.514074

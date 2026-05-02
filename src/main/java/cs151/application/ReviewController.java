@@ -42,11 +42,11 @@ public class ReviewController {
         // live search
         searchField.textProperty().addListener((obs, o, n) -> applyFilter(n));
 
-        // double click opens deck review page
+        // single click opens deck review page
         deckTable.setRowFactory(tv -> {
             TableRow<Deck> row = new TableRow<>();
             row.setOnMouseClicked(e -> {
-                if (e.getClickCount() == 2 && !row.isEmpty()) {
+                if (e.getClickCount() == 1 && !row.isEmpty()) {
                     openDeck(row.getItem());
                 }
             });
@@ -75,17 +75,23 @@ public class ReviewController {
 
     private String firstLine(String s) {
         if (s == null) return "";
-        String normalized = s.replace("\r\n", "\n");
+
+        // convert stored "\n" into real newline
+        String normalized = s.replace("\\n", "\n");
+
+        // normalize Windows newlines too (optional but good)
+        normalized = normalized.replace("\r\n", "\n");
+
         int idx = normalized.indexOf('\n');
         return (idx >= 0) ? normalized.substring(0, idx) : normalized;
     }
 
-    @FXML
-    private void onOpenClicked() {
-        Deck selected = deckTable.getSelectionModel().getSelectedItem();
-        if (selected == null) return;
-        openDeck(selected);
-    }
+//    @FXML
+//    private void onOpenClicked() {
+//        Deck selected = deckTable.getSelectionModel().getSelectedItem();
+//        if (selected == null) return;
+//        openDeck(selected);
+//    }
 
     private void openDeck(Deck selected) {
         try {
