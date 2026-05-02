@@ -10,7 +10,7 @@ Implemented Deck Review page/ deck-review-view FXML, DeckReviewController
 # Version 0.7
 1. Jailyn Yun: Added Editing Decks features and Deleting Deck features (EditDeckController, DeckTableController), tested and fixed bugs.
 2. Thi Phuc Thinh Huynh: Added openEditFlashcard method to SearchFlashcardController, implemented edit-flashcard-view FXML, EditFlashcardController
-3. Naman Kumar: Fixed the flashcard persistence issue by updating rewriteAll() to properly handle newline characters, 
+3. Naman Kumar: Fixed the flashcard persistence issue by updating rewriteAll() to properly handle newline characters,
 ensuring correct saving and loading of flashcard data.
 
 # Version: 0.6

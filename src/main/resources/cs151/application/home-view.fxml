@@ -32,6 +32,10 @@
                 onAction="#onManageDecksClicked"
                 style="-fx-font-size: 14px; -fx-padding: 10 18;"/>
 
+        <Button text="Review"
+        onAction="#onStudyClicked"
+        style="-fx-font-size: 14px; -fx-padding: 10 18;"/>
+
         <Button text="Add Deck"
                 onAction="#onAddDecksClicked"
                 style="-fx-font-size: 14px; -fx-padding: 10 18;"/>
