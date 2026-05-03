@@ -16,7 +16,13 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
-
+/**
+ * Controller for the deck review selection screen.
+ * <p>
+ * This class handles displaying all available flashcard decks,
+ * enabling live search/filtering, and opening a selected deck
+ * for review. It also supports navigation back to the home screen.
+ */
 public class ReviewController {
 
     @FXML private TextField searchField;
@@ -28,6 +34,12 @@ public class ReviewController {
     private final ObservableList<Deck> master = FXCollections.observableArrayList();
     private final ObservableList<Deck> filtered = FXCollections.observableArrayList();
 
+    /**
+     * Initializes the controller after the FXML fields are loaded.
+     * <p>
+     * Loads all decks from file, sets up table columns, binds data,
+     * and configures live search and row click behavior.
+     */
     @FXML
     public void initialize() {
         List<Deck> all = DeckFile.loadAll();
@@ -54,11 +66,19 @@ public class ReviewController {
         });
     }
 
+    /**
+     * Handles search button click and applies filter based on input text.
+     */
     @FXML
     private void onSearchClicked() {
         applyFilter(searchField.getText());
     }
 
+    /**
+     * Filters the deck list based on the search query.
+     *
+     * @param q the search string entered by the user
+     */
     private void applyFilter(String q) {
         String query = (q == null) ? "" : q.trim().toLowerCase(Locale.ROOT);
 
@@ -73,6 +93,12 @@ public class ReviewController {
         ));
     }
 
+    /**
+     * Extracts the first line from a multi-line string.
+     *
+     * @param s input string
+     * @return first line of the string, or empty string if null
+     */
     private String firstLine(String s) {
         if (s == null) return "";
 
@@ -86,13 +112,11 @@ public class ReviewController {
         return (idx >= 0) ? normalized.substring(0, idx) : normalized;
     }
 
-//    @FXML
-//    private void onOpenClicked() {
-//        Deck selected = deckTable.getSelectionModel().getSelectedItem();
-//        if (selected == null) return;
-//        openDeck(selected);
-//    }
-
+    /**
+     * Opens the selected deck in the deck review screen.
+     *
+     * @param selected the deck selected from the table
+     */
     private void openDeck(Deck selected) {
         try {
             FXMLLoader loader = new FXMLLoader(Main.class.getResource("deck-review-view.fxml"));
@@ -108,6 +132,12 @@ public class ReviewController {
         }
     }
 
+    /**
+     * Handles the back button click and navigates to the home screen.
+     *
+     * @param event the action event triggered by button click
+     * @throws IOException if FXML loading fails
+     */
     @FXML
     private void onBackClicked(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(Main.class.getResource("home-view.fxml"));

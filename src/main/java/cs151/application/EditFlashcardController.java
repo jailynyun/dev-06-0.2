@@ -12,6 +12,12 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.List;
 
+/**
+ * Controller for editing an existing flashcard.
+ * <p>
+ * Allows users to modify the deck, question, answer, and status of a flashcard,
+ * then save updates back to persistent storage.
+ */
 public class EditFlashcardController {
 
     @FXML private ComboBox<String> deckCombo;
@@ -21,6 +27,11 @@ public class EditFlashcardController {
 
     private Flashcard original;
 
+    /**
+     * Loads flashcard data into the edit form and initializes dropdowns.
+     *
+     * @param fc the flashcard to be edited
+     */
     public void setFlashcard(Flashcard fc) {
         this.original = fc;
 
@@ -36,6 +47,9 @@ public class EditFlashcardController {
         backArea.setText(fc.getAnswer());
     }
 
+    /**
+     * Saves updated flashcard data and writes changes to file storage.
+     */
     @FXML
     private void onSaveClicked() {
         String newDeck = deckCombo.getValue();
@@ -64,6 +78,12 @@ public class EditFlashcardController {
         FlashcardFile.rewriteAll(all);
     }
 
+    /**
+     * Navigates back to the flashcard search screen without saving.
+     *
+     * @param event the button click event
+     * @throws IOException if FXML loading fails
+     */
     @FXML
     private void onBackClicked(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(Main.class.getResource("search-flashcard-view.fxml"));

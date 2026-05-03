@@ -15,6 +15,13 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Controller for editing an existing deck.
+ * <p>
+ * Allows users to modify the deck name and description,
+ * ensures uniqueness of deck names, updates related flashcards,
+ * and saves changes to persistent storage.
+ */
 public class EditDeckController {
 
     @FXML
@@ -25,6 +32,11 @@ public class EditDeckController {
 
     private Deck originalDeck;
 
+    /**
+     * Loads the selected deck into the edit form.
+     *
+     * @param deck the deck to be edited
+     */
     public void setDeck(Deck deck) {
         this.originalDeck = deck;
 
@@ -34,6 +46,13 @@ public class EditDeckController {
         }
     }
 
+    /**
+     * Saves updated deck information, validates uniqueness,
+     * updates flashcards referencing the deck, and writes changes to file.
+     *
+     * @param event button click event
+     * @throws IOException if file operations fail
+     */
     @FXML
     public void onSaveClicked(ActionEvent event) throws IOException {
         if (originalDeck == null) {
@@ -93,6 +112,12 @@ public class EditDeckController {
         stage.setScene(scene);
     }
 
+    /**
+     * Updates all flashcards that reference the old deck name to the new name.
+     *
+     * @param oldName previous deck name
+     * @param newName updated deck name
+     */
     private void updateFlashcardsDeckName(String oldName, String newName) {
         Path flashcardPath = Path.of("flashcards.txt");
 
@@ -130,6 +155,12 @@ public class EditDeckController {
         }
     }
 
+    /**
+     * Navigates back to the deck table view without saving changes.
+     *
+     * @param event button click event
+     * @throws IOException if FXML loading fails
+     */
     @FXML
     public void onBackClicked(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(Main.class.getResource("deck-table-view.fxml"));
@@ -139,6 +170,12 @@ public class EditDeckController {
         stage.setScene(scene);
     }
 
+
+    /**
+     * Displays an information alert dialog.
+     *
+     * @param message message to display
+     */
     private void showAlert(String message) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setHeaderText(null);

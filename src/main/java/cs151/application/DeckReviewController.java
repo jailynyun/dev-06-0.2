@@ -13,6 +13,12 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Controller for reviewing flashcards inside a selected deck.
+ * <p>
+ * Supports navigation (next/previous), filtering by status,
+ * and updating flashcard progress during review sessions.
+ */
 public class DeckReviewController {
 
     @FXML private Label deckNameLabel;
@@ -35,6 +41,11 @@ public class DeckReviewController {
 
     private final DateTimeFormatter fmt = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 
+    /**
+     * Sets the deck to be reviewed and initializes UI components.
+     *
+     * @param deck selected deck for review session
+     */
     public void setDeck(Deck deck) {
         this.deck = deck;
         deckNameLabel.setText(deck.getName());
@@ -59,6 +70,9 @@ public class DeckReviewController {
         showCurrent();
     }
 
+    /**
+     * Loads all flashcards belonging to the current deck from file storage.
+     */
     private void reloadFromFile() {
         List<Flashcard> all = FlashcardFile.loadAll();
         allForDeck.clear();
@@ -69,6 +83,9 @@ public class DeckReviewController {
         }
     }
 
+    /**
+     * Applies status filter to flashcards.
+     */
     private void applyFilter() {
         String f = filterCombo.getValue();
         filtered.clear();
@@ -84,6 +101,10 @@ public class DeckReviewController {
         }
     }
 
+    /**
+     * Displays the current flashcard in the review view.
+     * Handles edge cases such as empty lists.
+     */
     private void showCurrent() {
         if (filtered.isEmpty()) {
             frontArea.setText("");
@@ -114,6 +135,9 @@ public class DeckReviewController {
         nextBtn.setDisable(index == filtered.size() - 1);
     }
 
+    /**
+     * Moves to previous flashcard in the list.
+     */
     @FXML
     private void onPrevClicked() {
         if (index > 0) {
@@ -122,6 +146,9 @@ public class DeckReviewController {
         }
     }
 
+    /**
+     * Moves to next flashcard in the list.
+     */
     @FXML
     private void onNextClicked() {
         if (index < filtered.size() - 1) {
@@ -130,6 +157,9 @@ public class DeckReviewController {
         }
     }
 
+    /**
+     * Saves updates made to the current flashcard and persists changes.
+     */
     @FXML
     private void onSaveClicked() {
         if (filtered.isEmpty()) return;
@@ -160,6 +190,12 @@ public class DeckReviewController {
         showCurrent();
     }
 
+    /**
+     * Navigates back to the main review screen.
+     *
+     * @param event button click event
+     * @throws IOException if FXML fails to load
+     */
     @FXML
     private void onBackClicked(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(Main.class.getResource("review-view.fxml"));

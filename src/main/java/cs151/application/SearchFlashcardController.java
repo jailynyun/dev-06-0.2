@@ -17,6 +17,13 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Locale;
 
+/**
+ * Controller for searching, viewing, editing, and deleting flashcards.
+ * <p>
+ * This screen allows users to search across all flashcards by deck name,
+ * front text, back text, or status. Users can also edit or delete flashcards,
+ * and navigate back to the home screen.
+ */
 public class SearchFlashcardController {
 
     @FXML
@@ -38,6 +45,12 @@ public class SearchFlashcardController {
     private final ObservableList<Flashcard> master = FXCollections.observableArrayList();
     private final ObservableList<Flashcard> filtered = FXCollections.observableArrayList();
 
+    /**
+     * Initializes the controller after FXML loading.
+     * <p>
+     * Loads all flashcards from file, sets up table columns,
+     * enables live search, and configures double-click editing.
+     */
     @FXML
     public void initialize() {
         // Load all flashcards once when opening this page
@@ -71,12 +84,19 @@ public class SearchFlashcardController {
         // optional live-search as you type
         searchField.textProperty().addListener((obs, oldV, newV) -> applyFilter(newV));
     }
-
+    /**
+     * Handles search button click.
+     */
     @FXML
     private void onSearchClicked() {
         applyFilter(searchField.getText());
     }
 
+    /**
+     * Filters flashcards based on search query.
+     *
+     * @param q search input string
+     */
     private void applyFilter(String q) {
         String query = (q == null) ? "" : q.trim().toLowerCase(Locale.ROOT);
 
@@ -91,12 +111,25 @@ public class SearchFlashcardController {
                 || containsIgnoreCase(fc.getStatus(), query)));
     }
 
+    /**
+     * Checks if a string contains a query (case-insensitive).
+     *
+     * @param text original text
+     * @param queryLower lowercase query string
+     * @return true if text contains query
+     */
     private boolean containsIgnoreCase(String text, String queryLower) {
         if (text == null)
             return false;
         return text.toLowerCase(Locale.ROOT).contains(queryLower);
     }
 
+    /**
+     * Returns the first line of a multi-line string.
+     *
+     * @param s input string
+     * @return first line or empty string if null
+     */
     private String firstLine(String s) {
         if (s == null)
             return "";
@@ -105,6 +138,10 @@ public class SearchFlashcardController {
         return (idx >= 0) ? normalized.substring(0, idx) : normalized;
     }
 
+    /**
+     * Deletes the selected flashcard permanently from storage
+     * and refreshes the table view.
+     */
     @FXML
     private void onDeleteClicked() {
         Flashcard selected = table.getSelectionModel().getSelectedItem();
@@ -119,6 +156,12 @@ public class SearchFlashcardController {
         applyFilter(searchField.getText());
     }
 
+    /**
+     * Navigates back to the home screen.
+     *
+     * @param event button click event
+     * @throws IOException if FXML loading fails
+     */
     @FXML
     private void onBackClicked(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(Main.class.getResource("home-view.fxml"));
@@ -127,6 +170,11 @@ public class SearchFlashcardController {
         stage.setScene(scene);
     }
 
+    /**
+     * Opens the edit flashcard screen for the selected flashcard.
+     *
+     * @param selected flashcard to edit
+     */
     private void openEditFlashcard(Flashcard selected) {
         try {
             FXMLLoader loader = new FXMLLoader(Main.class.getResource("edit-flashcard-view.fxml"));

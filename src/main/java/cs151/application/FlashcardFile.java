@@ -51,6 +51,11 @@ public class FlashcardFile {
         return list;
     }
 
+    /**
+     * Deletes a specific flashcard from the file based on its content and metadata.
+     *
+     * @param target flashcard to remove
+     */
     public static void deleteOne(Flashcard target) {
         List<Flashcard> all = loadAll();
 
@@ -64,6 +69,14 @@ public class FlashcardFile {
         rewriteAll(all);
     }
 
+    /**
+     * Overwrites the entire flashcard file with the provided list.
+     * <p>
+     * Each flashcard is written in a pipe-delimited format, with
+     * newline characters escaped.
+     *
+     * @param all list of flashcards to write to file
+     */
     public static void rewriteAll(List<Flashcard> all) {
         try (BufferedWriter w = Files.newBufferedWriter(
                 FILE,

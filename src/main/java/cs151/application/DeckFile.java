@@ -4,10 +4,24 @@ import java.nio.file.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Utility class for reading and writing deck data to persistent storage.
+ * <p>
+ * Handles serialization of Deck objects to and from the decks.txt file
+ * using a simple pipe-delimited format.
+ */
 public class DeckFile {
 
     private static final Path FILE = Path.of("decks.txt");
 
+    /**
+     * Loads all decks from the decks.txt file.
+     * <p>
+     * File format per line:
+     * deckName|description
+     *
+     * @return list of Deck objects loaded from file
+     */
     // decks.txt format:
     // deckName|description
     public static List<Deck> loadAll() {
@@ -31,6 +45,15 @@ public class DeckFile {
         return list;
     }
 
+    /**
+     * Saves all decks to the decks.txt file.
+     * <p>
+     * Overwrites existing file contents.
+     * Format per line:
+     * deckName|description
+     *
+     * @param decks list of decks to persist
+     */
     // Optional but useful for 0.7 later (edit/delete deck):
     public static void saveAll(List<Deck> decks) {
         List<String> out = new ArrayList<>();

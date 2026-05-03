@@ -5,7 +5,7 @@
 1. Jailyn Yun: Fixed bugs such as when there is a filter and no cards "NEW" was always shown, modified opening deck to review to one click, and view all flashcards bug in manage decks.
 2. Thi Phuc Thinh Huynh: Added Review button to Home page. Implemented Review page/ review-view FXML, ReviewController.
 Implemented Deck Review page/ deck-review-view FXML, DeckReviewController
-3. Naman Kumar:
+3. Naman Kumar: Implemented JavaDoc documentation and added the required decks and flashcards.
 
 # Version 0.7
 1. Jailyn Yun: Added Editing Decks features and Deleting Deck features (EditDeckController, DeckTableController), tested and fixed bugs.

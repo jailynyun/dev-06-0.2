@@ -227,6 +227,13 @@ public class DeckTableController {
         Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
     }
+
+    /**
+     * Deletes selected deck and all associated flashcards.
+     *
+     * @param actionEvent button click event
+     * @throws IOException if file operations fail
+     */
     @FXML
     public void onDeleteDeckClicked(ActionEvent actionEvent) throws IOException {
         Deck selectedDeck = deckTable.getSelectionModel().getSelectedItem();
@@ -256,6 +263,11 @@ public class DeckTableController {
         }
     }
 
+    /**
+     * Deletes a deck from storage.
+     *
+     * @param targetDeck deck to remove
+     */
     private void deleteDeck(Deck targetDeck) {
         Path path = Path.of("decks.txt");
 
@@ -285,6 +297,11 @@ public class DeckTableController {
         }
     }
 
+    /**
+     * Deletes all flashcards belonging to a given deck.
+     *
+     * @param targetDeck deck whose flashcards should be removed
+     */
     private void deleteFlashcardsForDeck(Deck targetDeck) {
         Path path = Path.of("flashcards.txt");
 

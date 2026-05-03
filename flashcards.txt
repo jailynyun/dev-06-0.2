@@ -1,6 +1,11 @@
-Data Structures|What is a stack?|LIFO structure\ntest\naaaa|Learning|2026-04-25T23:10:48.465750300|2026-05-02T16:16:25.096167
 Java Basics|What is JVM?|Java Virtual Machine|Learning|2026-04-25T23:11:17.576654400|2026-05-02T16:30:19.467314
 Java Basics|What is JDK?|Java Development Kit|Learning|2026-04-25T23:11:33.483930600|2026-05-02T16:07:18.548373
 OOP Concepts|What is encapsulation?|Wrapping data and methods together|Learning|2026-04-25T23:11:59.728628200|2026-05-02T16:14:49.563256
-OOP Concepts|What is inheritance?|Child class reuses parent class\na\na\n|Mastered|2026-04-25T23:12:20.297041500|2026-04-25T23:12:20.297041500
-hia|a\na|b\nb|NEW|2026-05-02T16:31:10.581520|2026-05-02T16:38:39.514074
+
+Data Structures|What is a stack?|A data structure that follows LIFO (Last In, First Out), where the last item added is the first removed.|NEW|2026-05-02T21:40:13.254947600
+Data Structures|What is a queue?|A data structure that follows FIFO (First In, First Out), where the first item added is the first removed.|NEW|2026-05-02T21:40:30.479209300
+Data Structures|What is a linked list?|A data structure made of nodes where each node contains data and a reference to the next node.|NEW|2026-05-02T21:42:33.603248100
+OOP Concepts|What is inheritance in OOP?|Inheritance allows a class to acquire properties and behaviors from another class, promoting code reuse.|NEW|2026-05-02T21:45:11.461879700
+OOP Concepts|What is polymorphism in OOP?|Polymorphism allows objects to take many forms, typically through method overriding or method overloading.|NEW|2026-05-02T21:45:30.995028900
+OOP Concepts|What is abstraction in OOP?|Abstraction hides implementation details and shows only the essential features of an object.|NEW|2026-05-02T21:45:55.540792200
+OOP Concepts|What is the difference between a class and an object?|A class is a blueprint for creating objects, while an object is an instance of a class.|NEW|2026-05-02T21:46:41.789588500
